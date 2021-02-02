@@ -1,0 +1,9 @@
+body{
+    background-color: #f6e0a2;
+  }
+
+.btn {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
