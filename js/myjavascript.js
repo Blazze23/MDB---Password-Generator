@@ -14,12 +14,16 @@ function generatePassword() {
     text+=numbers;
   }
   console.log(text);
+  let i = 0;
   let numOfCharacters = $("#numberOfCharacters").val();
   console.log(numOfCharacters);
-  while (password.length < numOfCharacters) {
-    let rand = Math.round(Math.random() * text.length);
+  while (i < numOfCharacters) {
+    let rand = Math.round(Math.random() * 100);
     console.log(rand);
-    password += text[rand];
+    if (rand <= text.length - 1) {
+      password += text[rand];
+      i++;
+    }
   }
   console.log(password);
   $("#password").text(password);
