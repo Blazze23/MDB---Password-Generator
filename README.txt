@@ -2,6 +2,8 @@ Password Generator App created with MDBootstrap, jQuery and Javascript;
 
 It let's you choose number of characters for your password, also you can check if you want to use uppercase, symbols and numbers;
 
+Live preview: https://generatemypass.netlify.app/
+
 Material Design for Bootstrap
 Version: MDB FREE 4.19.2
 
