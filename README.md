@@ -1,4 +1,4 @@
-Password Generator App created with MDBootstrap, jQuery and Javascript;
+# Password Generator App created with MDBootstrap, jQuery and Javascript
 
 It let's you choose number of characters for your password, also you can check if you want to use uppercase, symbols and numbers;
 
