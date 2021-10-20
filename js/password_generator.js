@@ -1,31 +1,30 @@
 const CHARACTER_CLASSES = {
-  lowercase: "qwertyuiopasdfghjklzxcvbnm",
-  uppercase: "QWERTYUIOPASDFGHJKLZXCVBNM",
-  symbols  : "!@#$%^&*()_+{}[]:;></?|",
-  digits   : "0123456789",
+  lowers : "qwertyuiopasdfghjklzxcvbnm",
+  uppers : "QWERTYUIOPASDFGHJKLZXCVBNM",
+  symbols: "!@#$%^&*()_+{}[]:;></?|",
+  digits : "0123456789",
 }
 
-function generatePassword(numOfCharacters = 8, useUppers = false, useSymbols = false, useDigits = false) {
-
-  let text = CHARACTER_CLASSES.lowercase;
+function generatePassword(length = 8, useUppers = false, useSymbols = false, useDigits = false, useLowers = true) {
+  let chars = ``;
+  if(useLowers) {
+    chars += CHARACTER_CLASSES.lowers;
+  }
   if(useUppers) {
-    text += CHARACTER_CLASSES.uppercase;
+    chars += CHARACTER_CLASSES.uppers;
   }
   if(useSymbols) {
-    text += CHARACTER_CLASSES.symbols;
+    chars += CHARACTER_CLASSES.symbols;
   }
   if(useDigits) {
-    text += CHARACTER_CLASSES.digits;
+    chars += CHARACTER_CLASSES.digits;
   }
 
-  let password        = "";
-  let i               = 0;
-  while(i < numOfCharacters) {
-    let rand = Math.round(Math.random() * 100);
-    if(rand <= text.length - 1) {
-      password += text[rand];
-      i++;
-    }
+  let password = ``;
+  while(password.length < length) {
+    // Randomly pick a character from the vocabulary and append it to the password
+    password += chars[Math.floor(Math.random() * chars.length)];
   }
+
   return password;
 }
