@@ -1,30 +1,31 @@
-function generatePassword() {
-  let password = "";
-  let text = "qwertyuiopasdfghjklzxcvbnm";
-  let uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM";
-  let symbols = "!@#$%^&*()_+{}[]:;></?|";
-  let numbers = "0123456789";
-  if ($("#uppercase").prop("checked")) {
-    text+=uppercase;
+const CHARACTER_CLASSES = {
+  lowercase: "qwertyuiopasdfghjklzxcvbnm",
+  uppercase: "QWERTYUIOPASDFGHJKLZXCVBNM",
+  symbols  : "!@#$%^&*()_+{}[]:;></?|",
+  digits   : "0123456789",
+}
+
+function generatePassword(numOfCharacters = 8, useUppers = false, useSymbols = false, useDigits = false) {
+
+  let text = CHARACTER_CLASSES.lowercase;
+  if(useUppers) {
+    text += CHARACTER_CLASSES.uppercase;
   }
-  if ($("#symbols").prop("checked")) {
-    text+=symbols;
+  if(useSymbols) {
+    text += CHARACTER_CLASSES.symbols;
   }
-  if ($("#numbers").prop("checked")) {
-    text+=numbers;
+  if(useDigits) {
+    text += CHARACTER_CLASSES.digits;
   }
-  console.log(text);
-  let i = 0;
-  let numOfCharacters = $("#numberOfCharacters").val();
-  console.log(numOfCharacters);
-  while (i < numOfCharacters) {
+
+  let password        = "";
+  let i               = 0;
+  while(i < numOfCharacters) {
     let rand = Math.round(Math.random() * 100);
-    console.log(rand);
-    if (rand <= text.length - 1) {
+    if(rand <= text.length - 1) {
       password += text[rand];
       i++;
     }
   }
-  console.log(password);
-  $("#password").text(password);
+  return password;
 }

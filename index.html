@@ -100,7 +100,7 @@
         <button
           type="button"
           class="btn blue-gradient animated fadeInLeft slow"
-          onclick="generatePassword();"
+          onclick="$('#password').text(generatePassword($('#numberOfCharacters').val(), $('#uppercase').prop('checked'), $('#symbols').prop('checked'), $('#numbers').prop('checked')));"
         >
           Generate password
         </button>
